@@ -9,8 +9,8 @@ with AllLocations as (
         sf.BillingStateProvince,
         sf.BillingZipPostalCode,
         sf.Website
-    from DinovaIntegrations.SalesForce.SfSync sf
-    inner join DinovaSandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = sf.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    from Integrations.SalesForce.SfSync sf
+    inner join Sandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = sf.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
     where sf.LocationType = 'Location'
 
     union all
@@ -25,9 +25,9 @@ with AllLocations as (
         loc.BillingStateProvince,
         loc.BillingZipPostalCode,
         loc.Website
-    from DinovaIntegrations.SalesForce.SfSync own1
-    inner join DinovaSandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    from Integrations.SalesForce.SfSync own1
+    inner join Sandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
     where own1.LocationType = 'Ownership'
     and loc.LocationType = 'Location'
 
@@ -43,10 +43,10 @@ with AllLocations as (
         loc.BillingStateProvince,
         loc.BillingZipPostalCode,
         loc.Website
-    from DinovaIntegrations.SalesForce.SfSync own1
-    inner join DinovaSandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own2 on own2.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own2.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    from Integrations.SalesForce.SfSync own1
+    inner join Sandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own2 on own2.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own2.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
     where own1.LocationType = 'Ownership'
     and own2.LocationType = 'Ownership'
     and loc.LocationType = 'Location'
@@ -63,11 +63,11 @@ with AllLocations as (
         loc.BillingStateProvince,
         loc.BillingZipPostalCode,
         loc.Website
-    from DinovaIntegrations.SalesForce.SfSync own1
-    inner join DinovaSandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own2 on own2.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own3 on own3.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own2.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own3.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    from Integrations.SalesForce.SfSync own1
+    inner join Sandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own2 on own2.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own3 on own3.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own2.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own3.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
     where own1.LocationType = 'Ownership'
     and own2.LocationType = 'Ownership'
     and own3.LocationType = 'Ownership'
@@ -85,12 +85,12 @@ with AllLocations as (
         loc.BillingStateProvince,
         loc.BillingZipPostalCode,
         loc.Website
-    from DinovaIntegrations.SalesForce.SfSync own1
-    inner join DinovaSandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own2 on own2.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own3 on own3.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own2.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own4 on own4.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own3.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own4.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    from Integrations.SalesForce.SfSync own1
+    inner join Sandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own2 on own2.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own3 on own3.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own2.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own4 on own4.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own3.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own4.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
     where own1.LocationType = 'Ownership'
     and own2.LocationType = 'Ownership'
     and own3.LocationType = 'Ownership'
@@ -109,13 +109,13 @@ with AllLocations as (
         loc.BillingStateProvince,
         loc.BillingZipPostalCode,
         loc.Website
-    from DinovaIntegrations.SalesForce.SfSync own1
-    inner join DinovaSandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own2 on own2.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own3 on own3.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own2.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own4 on own4.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own3.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own5 on own5.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own4.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own5.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    from Integrations.SalesForce.SfSync own1
+    inner join Sandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own2 on own2.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own3 on own3.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own2.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own4 on own4.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own3.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own5 on own5.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own4.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own5.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
     where own1.LocationType = 'Ownership'
     and own2.LocationType = 'Ownership'
     and own3.LocationType = 'Ownership'
@@ -135,14 +135,14 @@ with AllLocations as (
         loc.BillingStateProvince,
         loc.BillingZipPostalCode,
         loc.Website
-    from DinovaIntegrations.SalesForce.SfSync own1
-    inner join DinovaSandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own2 on own2.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own3 on own3.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own2.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own4 on own4.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own3.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own5 on own5.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own4.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync own6 on own6.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own5.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
-    inner join DinovaIntegrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own6.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    from Integrations.SalesForce.SfSync own1
+    inner join Sandbox.FileUpload.TopAccounts csv on csv.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = own1.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own2 on own2.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own1.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own3 on own3.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own2.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own4 on own4.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own3.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own5 on own5.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own4.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync own6 on own6.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own5.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
+    inner join Integrations.SalesForce.SfSync loc on loc.ParentAccountID COLLATE SQL_Latin1_General_CP1_CS_AS = own6.AccountID COLLATE SQL_Latin1_General_CP1_CS_AS
     where own1.LocationType = 'Ownership'
     and own2.LocationType = 'Ownership'
     and own3.LocationType = 'Ownership'
@@ -197,6 +197,6 @@ select
         when c.Website = '' or c.Website is null then sl.Website 
         else c.Website 
     end as Website
-from DinovaSandbox.FileUpload.TopAccounts c
+from Sandbox.FileUpload.TopAccounts c
 left join SelectedLocations sl on sl.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS = c.TopAccount COLLATE SQL_Latin1_General_CP1_CS_AS
     and sl.RankByCompleteness = 1 
