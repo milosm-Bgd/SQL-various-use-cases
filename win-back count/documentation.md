@@ -108,7 +108,3 @@ ORDER BY Brand_Name, Days_Between_Exit_And_Rejoin
 - Uses `DATEDIFF()` to compute the number of days between exit and return.
 - Filters out locations with **less than a 30-day gap**.
 - Provides an ordered result by brand name and **time gap between exit and return**.
-
----
-
-Let me know if you need modifications or clarifications! 🚀
