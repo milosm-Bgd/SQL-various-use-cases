@@ -1,21 +1,9 @@
-# Sales-increase-in-restaurant-industry
-increase the sales by locating accurate prospectuses and potential partners
+# Repo consisting variosu use cases I have been working on 
 
-+
+Just want to mention severla od them , whereas more details are to be found inside the specific sub-folder
 
-Our goal is to increase sales - locating accurate prospectuses and potential partners
- * in the background, testing software from a third-party provider that offers contact information for restaurants and locations that we would target in sales
- The offer consists of real data that we will market to that SW house in order to obtain the required data in return
-Datasource : [SalesForceSync] within [Integrations] db
-One table returns top level accounts AccountIDs under the following conditions, a total of 100 Accounts are required
- - 50% of locations belong to the same metro region, by which we determine that it unequivocally belongs to sought-after locations such as Pittsburgh and Richmond
- - The highest level in the hierarchy (Ownership)
- - No contact information
-
-SalesForce Contact
- - We make join with that table
- - After joining, we return only those rows that do not have Contact information
-
-Suggested solutions:
- - Can SELF JOIN from SfSync in order to filter the top level, one of way
- - to set the Parent column to IS NULL
+1. Increase the sales by locating accurate prospectuses and potential partners
+2. Calculation of the number of customers inside the network that have left the network and again re-joined in a given time-period of break-time
+3. Normalization of raw data (in string format)
+4. Analysis for Number of Locations belonging to a specific Brand
+   - counting the brands consisting of specific number of restaurants, and placing them into the corresponding buckets 
